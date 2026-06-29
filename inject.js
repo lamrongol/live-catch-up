@@ -290,8 +290,11 @@
             interval = setInterval(() => {
                 if (player) {
                     const stats_for_nerds = player.getStatsForNerds();
+                    //this property exists only for now live streaming, not archive
+                    let live_latency_secs = stats_for_nerds.live_latency_secs;
+
                     const live_button = player.querySelector(".ytp-live-badge");
-                    if (!live_button.disabled) {
+                    if (live_latency_secs && !live_button.classList.contains("ytp-live-badge-is-livehead")) {
                         const latency = Number.parseFloat(stats_for_nerds.live_latency_secs);
                         const health = Number.parseFloat(stats_for_nerds.buffer_health_seconds);
                         const progress_state = player.getProgressState();
