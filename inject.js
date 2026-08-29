@@ -319,6 +319,7 @@
                         settings.showCurrent ? update_current(progress_state.current, progress_state.seekableEnd, progress_state.isAtLiveHead, player.getVideoData()?.video_id) : hide_current();
                     } else {
                         reset_bottom();
+                        reset_playbackRate();
                         hide_playbackRate();
                         hide_latency();
                         hide_health();
